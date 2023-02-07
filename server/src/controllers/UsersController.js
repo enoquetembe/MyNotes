@@ -67,8 +67,7 @@ class UsersController {
     )
     
     response.json()
-  }
-  
+  } 
 }
 
 module.exports = UsersController
