@@ -66,7 +66,7 @@ class UsersController {
     [user.name, user.email, user.password, id]
     )
     
-    response.json()
+    return response.json()
   } 
 }
 
