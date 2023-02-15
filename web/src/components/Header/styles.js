@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   width: 100%;
-  height: 10.5;
+  height: 10.5rem;
   padding: 0 8rem;
   border-bottom: 1px solid ${({theme}) => theme.COLORS.BACKGROUND_700};
 
