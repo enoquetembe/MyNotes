@@ -14,9 +14,21 @@ export function SignUp() {
         <p>Application to save and manage your util links.</p>
 
         <h2>Create your account</h2>
-        <Input placeholder="Nome" type="text" icon={FiUser} />
-        <Input placeholder="E-mail" type="text" icon={FiMail} />
-        <Input placeholder="Password" type="password" icon={FiLock} />
+        <Input 
+          placeholder="Name" 
+          type="text" 
+          icon={FiUser} 
+        />
+        <Input 
+          placeholder="E-mail" 
+          type="text" 
+          icon={FiMail}
+        />
+        <Input 
+          placeholder="Password" 
+          type="password" 
+          icon={FiLock} 
+        />
 
         <Button title="Register" />
 
