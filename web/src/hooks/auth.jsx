@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createContext, useContext } from 'react'
 
 import { api } from  '../services/api'
 
 export const AuthContext = createContext({})
 
-export { useState } from 'react'
+export { useState, useEffect } from 'react'
 
 export function AuthProvider({ children }) {
   const [data, setData] = useState({})
@@ -18,6 +18,9 @@ export function AuthProvider({ children }) {
       api.defaults.headers.authorization = `Bear ${token}`
       setData({user, token})
 
+      localStorage.setItem('@mynotes:user', JSON.stringify(user))
+      localStorage.setItem('mynotes:token', token)
+
     } catch(error) {
       if(error.response) {
         alert(error.response.data.message)
@@ -27,6 +30,19 @@ export function AuthProvider({ children }) {
     }
   }
 
+  useEffect(() => {
+    const user = localStorage.getItem("@mynotes:user")
+    const token = localStorage.getItem("mynotes:token")
+
+    if(user && token) {
+      api.defaults.headers.authorization = `Bear ${token}`
+      setData({
+        token,
+        user: JSON.parse(user)
+      })
+    }
+
+  }, [])
   return(
     <AuthContext.Provider value={{ signIn, user: data.user}}>
       {children}
