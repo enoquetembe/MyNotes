@@ -24,7 +24,7 @@ export const Brand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
   > h1 {
     color: ${({ theme }) => theme.COLORS.ORANGE};

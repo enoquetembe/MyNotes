@@ -30,9 +30,16 @@ export function AuthProvider({ children }) {
     }
   }
 
+  function signOut() {
+    localStorage.removeItem('@mynotes:user')
+    localStorage.removeItem('mynotes:token')
+
+    setData({})
+  }
+
   useEffect(() => {
-    const user = localStorage.getItem("@mynotes:user")
-    const token = localStorage.getItem("mynotes:token")
+    const user = localStorage.getItem('@mynotes:user')
+    const token = localStorage.getItem('mynotes:token')
 
     if(user && token) {
       api.defaults.headers.authorization = `Bear ${token}`
@@ -44,7 +51,11 @@ export function AuthProvider({ children }) {
 
   }, [])
   return(
-    <AuthContext.Provider value={{ signIn, user: data.user}}>
+    <AuthContext.Provider value={{ 
+        signIn,
+        signOut, 
+        user: data.user
+      }}>
       {children}
     </AuthContext.Provider>
   )
