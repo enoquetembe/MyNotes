@@ -36,8 +36,16 @@ export function AuthProvider({ children }) {
     setData({})
   }
 
-  async function updateProfile({ user }) {
+  async function updateProfile({ user, avatarFile }) {
     try {
+      if(avatarFile) {
+        const fileForm = new FormData()
+        fileForm.append('avatar', avatarFile)
+
+        const response = await api.patch('users/avatar', fileForm)
+        user.avatar = response.data.avatar
+      }
+
       await api.put('/users', user)
       localStorage.setItem('@mynotes:user', JSON.stringify(user))
       
