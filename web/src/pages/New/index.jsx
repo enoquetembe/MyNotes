@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Container, Form } from './styles'
 
 import { Header } from '../../components/Header'
@@ -9,13 +9,19 @@ import { NoteItem } from '../../components/NoteItem'
 import { Button } from '../../components/Button'
 
 import { useState } from 'react'
+import { api } from '../../services/api'
 
 export function New() {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+
   const [links,  setLinks] = useState([])
   const [newLink, setNewLink] = useState('')
   
   const [tags,  setTags] = useState([])
   const [newTag, setNewTag] = useState('')
+
+  const navigate = useNavigate()
 
   function handleAddLink() {
     setLinks(prevState => [...prevState, newLink])
@@ -35,6 +41,26 @@ export function New() {
     setTags(prevState => prevState.filter(tag => tag !== tagToRemove))
   }
 
+  async function handleNewNote() {
+
+    if(!title) {
+      return alert('Title is required.')
+    }
+
+    if(newLink) {
+      return alert("You left a link to be added but didn't click on add button. Click the button to add or leave the field empty")
+    }
+
+    if(newTag) {
+      return alert("You left a tag to be added but didn't click on add button. Click the button to add or leave the field empty.")
+    }
+
+    await api.post('/notes', {title, description, tags, links})
+    alert("Note created successfully.")
+
+    navigate('/')
+  }
+
   return(
     <Container>
       <Header/>
@@ -48,10 +74,12 @@ export function New() {
 
           <Input 
             placeholder='Title'
+            onChange={e => setTitle(e.target.value)}
           />
 
           <TextArea 
             placeholder='Observations'
+            onChange={e => setDescription(e.target.value)}
           >
 
           </TextArea>
@@ -98,7 +126,7 @@ export function New() {
             </div>
           </Section>
 
-          <Button title='Save'/>
+          <Button title='Save' onClick={handleNewNote}/>
         </Form>
       </main>
     </Container>
