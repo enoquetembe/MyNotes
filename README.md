@@ -36,7 +36,7 @@ This project was developed with the following technologies:
 
 
 ## 💻 Project
-This project is an application to manage notes and useful links. It works as a service to take short text notes.
+This project is an application to manage notes and util links. It works as a service to take short text notes.
 
 <br> 
 
