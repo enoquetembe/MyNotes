@@ -32,8 +32,9 @@ export const Form = styled.form`
     align-items: center;
     margin-bottom: 3.6rem;
 
-    a {
+    button {
       color: ${({ theme }) => theme.COLORS.GRAY_100};
+      font-size: 2rem;
     }
   }
 `

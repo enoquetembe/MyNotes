@@ -1,5 +1,5 @@
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import { Container, Form, Avatar } from './styles'
@@ -22,6 +22,12 @@ export function Profile() {
   const [avatar, setAvatar] = useState(avatarURL)
   const [avatarFile, setAvatarFile] = useState(null)
   
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   async function handleUpdateProfile() {
     const user = {
       name,
@@ -44,9 +50,9 @@ export function Profile() {
   return(
     <Container>
       <header>
-        <Link to='/'>
+        <button type='button' onClick={handleBack}>
           <FiArrowLeft/>
-       </Link>
+       </button>
       </header>
 
       <Form>
