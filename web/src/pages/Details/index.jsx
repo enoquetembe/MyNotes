@@ -1,49 +1,80 @@
 import { Container, Links, Content } from './styles'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { Header } from '../../components/Header'
 import { Section } from '../../components/Section'
 import { ButtonText } from '../../components/ButtonText'
 import { Tag } from '../../components/Tag'
 import { Button } from '../../components/Button'
+import { api } from '../../services/api'
 
 export function Details() {
+  const [data, setData] = useState(null)
+
+  const params = useParams()
+  const navigate  = useNavigate()
+
+  async function handleDeleteNote() {
+    const confirm = window.confirm('Are you sure you want to delete this note?')
+    if(confirm) {
+      await api.delete(`/notes/${params.id}`)
+      navigate('/')
+    }
+  }
+  
+  function handleBack() {
+    navigate('/')
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await api.get(`/notes/${params.id}`)
+      setData(response.data)
+    }
+
+    fetchData()
+  }, [])
+
   return (
     <Container>
       <Header />
 
-      <main>
-        <Content>
-          <ButtonText title='Delete note' />
+      {data && (
+        <main>
+          <Content>
+            <ButtonText title='Delete note' onClick={handleDeleteNote}/>
 
-          <h1>Introduction to React</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
-            earum quae non tenetur, totam eveniet hic exercitationem, ipsum
-            distinctio similique voluptates magni porro, laborum cupiditate
-            recusandae. Quibusdam assumenda itaque, illo recusandae, mollitia
-            delectus libero nemo accusamus soluta perspiciatis cum, maiores nam
-            ipsa. Quaerat quam autem qui, deserunt fugit nisi ad.
-          </p>
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
 
-          <Section title='Util links'>
-            <Links>
-              <li>
-                <a href='#'>https://github.com/enoquetembe</a>
-              </li>
-              <li>
-                <a href='#'>https://layouts.com</a>
-              </li>
-            </Links>
-          </Section>
+            {data.links && (
+              <Section title='Util links'>
+                <Links>
+                  {data.links.map((link) => (
+                    <li key={String(link.id)}>
+                      <a href={link.url} target='_blank'>{link.url}</a>
+                    </li>
+                  ))}
+                </Links>
+              </Section>
+            )}
 
-          <Section title='Tags'>
-            <Tag title='react' />
-            <Tag title='javascript' />
-          </Section>
+            {data.tags && (
+              <Section title='Tags'>
+                {data.tags.map((tag) => (
+                  <Tag 
+                    key={String(tag.id)}
+                    title={tag.name}
+                   />
+                ))}
+              </Section>
+            )}
 
-          <Button title='Back' />
-        </Content>
-      </main>
+            <Button title='Back' onClick={handleBack}/>
+          </Content>
+        </main>
+      )}
     </Container>
   )
 }
