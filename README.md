@@ -102,6 +102,36 @@ npm run dev
 ```
 <br>
 
+## 👨‍💻 Contributing
+
+<p> 
+  Pull Requests are welcome. For major changes, please open an issue to discuss what and which kind of changes you want to perform.<br>
+  Follow this steps to make your contribution.
+  
+  #### 1. Fork the repository
+  
+  #### 2. Create your feature branch 
+ ```bash
+ # To make it easier name this branch with your username or with the name of the feature you added
+ $ git checkout -b MyFeature
+ ```
+  
+  #### 3. Commit your changes
+  ```bash
+   $ git commit -m 'Adding my feature'
+  ```
+  
+  #### 4. Push to your feature branch
+  ```bash
+   $ git push origin MyFeature
+  ```
+  
+  #### 5. Open a Pull Request
+  
+  <br>
+  Let's work together. 😁
+<p/>
+
 ## 📸 Screenshot
 
 ### Login
@@ -130,6 +160,8 @@ npm run dev
 -->
 
 <br>
+
+
 
 ## 📄 License
 This project is under MIT Lincese  [CLICK HERE](https://github.com/enoquetembe/MyNotes/blob/main/LICENSE) to read the file about the license.
