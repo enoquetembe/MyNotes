@@ -13,7 +13,7 @@
 
 <div align="center"> 
 
-  ![Notes](https://user-images.githubusercontent.com/98264322/222968120-d238cc3e-9e9e-4ef5-9748-86ed0c43c141.png)
+  <img src="https://user-images.githubusercontent.com/98264322/222968120-d238cc3e-9e9e-4ef5-9748-86ed0c43c141.png" width="800" height="700"/>
 
 </div>
 
