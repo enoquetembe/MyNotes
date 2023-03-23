@@ -46,24 +46,24 @@ export function New() {
     setTags(prevState => prevState.filter(tag => tag !== tagToRemove))
   }
 
-  async function handleNewNote() {
-
+  async function handleNewNote() {    
     if(!title) {
       return alert('Title is required.')
-    }
-
-    if(newLink) {
+    } else if(newLink) {
       return alert("You left a link to be added but didn't click on add button. Click the button to add or leave the field empty")
-    }
-
-    if(newTag) {
+    }else if(newTag) {
       return alert("You left a tag to be added but didn't click on add button. Click the button to add or leave the field empty.")
+    } else {
+      api.post('/notes', {
+        title,
+        description,
+        tags,
+        links
+      })
+
+      alert('The note was created successfully.')
     }
-
-    await api.post('/notes', {title, description, tags, links})
-    alert("Note created successfully.")
-
-    handleBack()
+    navigate('/')
   }
 
   return(
