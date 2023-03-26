@@ -12,6 +12,14 @@ export const Container = styled.div`
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
+    button {
+      @media(max-width: 900px) {
+        margin-top: -10rem;
+        margin-left: -10rem;
+      }
+    }
+
+
     svg {
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       font-size: 2.4rem;

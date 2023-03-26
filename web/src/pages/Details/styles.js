@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -6,28 +6,32 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-rows: 10.5rem auto;
-  grid-template-areas: 
+  grid-template-areas:
     'header'
-    'content'; 
+    'content';
 
-    > main {
-      grid-area: content;
-      padding: 6.4rem 0;
-      overflow-y: auto;
+  > main {
+    grid-area: content;
+    padding: 6.4rem 0;
+    overflow-y: auto;
+
+    @media (max-width: 650px) {
+      margin-inline: 4rem;
     }
-`
+  }
+`;
 
 export const Links = styled.ul`
   list-style: none;
-  
+
   > li {
     margin-top: 1.2rem;
 
     a {
-      color: ${({ theme }) => theme.COLORS.WHITE}
+      color: ${({ theme }) => theme.COLORS.WHITE};
     }
   }
-`
+`;
 
 export const Content = styled.div`
   max-width: 55rem;
@@ -35,7 +39,7 @@ export const Content = styled.div`
 
   display: flex;
   flex-direction: column;
-  
+
   > button:first-child {
     align-self: end;
   }
@@ -53,4 +57,4 @@ export const Content = styled.div`
     font-size: 1.6rem;
     text-align: justify;
   }
-`
+`;

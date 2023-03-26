@@ -15,6 +15,12 @@ export const Container = styled.div`
   'newnote content';
 
   background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+
+
+  @media (max-width: 700px) {
+   display: flex;
+   flex-direction: column;
+  }
 `
 
 export const Brand = styled.div`
@@ -30,6 +36,10 @@ export const Brand = styled.div`
     color: ${({ theme }) => theme.COLORS.ORANGE};
     font-size: 2.4rem;
   }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `
 
 export const Menu = styled.ul`
@@ -41,6 +51,10 @@ export const Menu = styled.ul`
 
   > li {
     margin-bottom: 2.4rem;
+  }
+
+  @media(max-width: 700px){
+    display: none;
   }
 `
 
@@ -64,4 +78,13 @@ export const NewNote = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: .8rem;
+
+  @media (max-width: 700px) {
+    padding: 2rem;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 `

@@ -13,6 +13,10 @@ export const Container = styled.div`
   > main {
     grid-area: content;
     overflow-y: auto;
+
+    @media(max-width: 650px) {
+      margin-inline: 4rem;
+    }
   }
   
   .tags {
