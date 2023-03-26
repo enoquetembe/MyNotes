@@ -6,7 +6,7 @@
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-screenshot">Screenshot</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <!-- <a href="#-live-demo">Live Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; -->
+  <a href="#-live-demo">Live Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
   <a href="#-license">License</a>  
 
 </p>
@@ -154,10 +154,10 @@ npm run dev
 
 <br>
 
-<!--
+
 ## 💻 Live Demo
-- You can see the application in live through [THIS LINK](https://haditdays.netlify.app/) 
--->
+- You can see the application in live through [THIS LINK](https://myn0tes.netlify.app/) 
+
 
 <br>
 
