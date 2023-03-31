@@ -36,7 +36,7 @@ This project was developed with the following technologies:
 
 
 ## 💻 Project
-This project is an application to manage notes and util links. It works as a service to take short text notes.
+ This project is an application for managing notes and util links, this application allows users to create and register notes. These notes can be used to register ideas, reminders, to-do lists, important information, and other types of information that users want to keep accessible. It works as a service to make small text notes.
 
 <br> 
 
