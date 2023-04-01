@@ -40,9 +40,6 @@ This project was developed with the following technologies:
 
 <br> 
 
-## Status
-This project is still under development <br>
-
 ## 🚀 Getting started
 
 ### Prerequisites
@@ -106,7 +103,7 @@ npm run dev
 
 <p> 
   Pull Requests are welcome. For major changes, please open an issue to discuss what and which kind of changes you want to perform.<br>
-  Follow this steps to make your contribution.
+  Follow these steps to make your contribution.
   
   #### 1. Fork the repository
   
